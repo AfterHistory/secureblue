@@ -23,4 +23,3 @@ scripts:
   - removefedoraflatpakremoteservice.sh
   - enablecommonautoupdate.sh
   - localization.sh
-  - enablefapolicyd.sh
