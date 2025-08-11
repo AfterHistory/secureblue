@@ -35,36 +35,64 @@ jobs:
     strategy:
       fail-fast: false # stop GH from cancelling all matrix builds if one fails
       matrix:
-        recipe:
-          # general
-          - general/recipe-silverblue-main.yml
-          - general/recipe-silverblue-nvidia.yml
-          - general/recipe-silverblue-nvidia-open.yml
-          - general/recipe-kinoite-main.yml
-          - general/recipe-kinoite-nvidia.yml
-          - general/recipe-kinoite-nvidia-open.yml
-          - general/recipe-sericea-main.yml
-          - general/recipe-sericea-nvidia.yml
-          - general/recipe-sericea-nvidia-open.yml
-          - general/recipe-cosmic-main.yml
-          - general/recipe-cosmic-nvidia.yml
-          - general/recipe-cosmic-nvidia-open.yml
-          # server
-          - securecore/recipe-securecore-main.yml
-          - securecore/recipe-securecore-nvidia.yml
-          - securecore/recipe-securecore-nvidia-open.yml
-          - securecore/recipe-securecore-zfs-main.yml
-          - securecore/recipe-securecore-zfs-nvidia.yml
-          - securecore/recipe-securecore-zfs-nvidia-open.yml
-          - iot/recipe-iot-main.yml
-          - iot/recipe-iot-nvidia.yml
-          - iot/recipe-iot-nvidia-open.yml
-          - iot/recipe-iot-zfs-main.yml
-          - iot/recipe-iot-zfs-nvidia.yml
-          - iot/recipe-iot-zfs-nvidia-open.yml
-          - iot/recipe-iot-main-aarch64.yml
-          - iot/recipe-iot-nvidia-aarch64.yml
-          - iot/recipe-iot-nvidia-open-aarch64.yml
+        include:
+        # general
+        - recipe: general/recipe-silverblue-main.yml
+          os: ubuntu-24.04
+        - recipe: general/recipe-silverblue-nvidia.yml
+          os: ubuntu-24.04
+        - recipe: general/recipe-silverblue-nvidia-open.yml
+          os: ubuntu-24.04
+        - recipe: general/recipe-kinoite-main.yml
+          os: ubuntu-24.04
+        - recipe: general/recipe-kinoite-nvidia.yml
+          os: ubuntu-24.04
+        - recipe: general/recipe-kinoite-nvidia-open.yml
+          os: ubuntu-24.04
+        - recipe: general/recipe-sericea-main.yml
+          os: ubuntu-24.04
+        - recipe: general/recipe-sericea-nvidia.yml
+          os: ubuntu-24.04
+        - recipe: general/recipe-sericea-nvidia-open.yml
+          os: ubuntu-24.04
+        - recipe: general/recipe-cosmic-main.yml
+          os: ubuntu-24.04
+        - recipe: general/recipe-cosmic-nvidia.yml
+          os: ubuntu-24.04
+        - recipe: general/recipe-cosmic-nvidia-open.yml
+          os: ubuntu-24.04
+
+        # server
+        - recipe: securecore/recipe-securecore-main.yml
+          os: ubuntu-24.04
+        - recipe: securecore/recipe-securecore-nvidia.yml
+          os: ubuntu-24.04
+        - recipe: securecore/recipe-securecore-nvidia-open.yml
+          os: ubuntu-24.04
+        - recipe: securecore/recipe-securecore-zfs-main.yml
+          os: ubuntu-24.04
+        - recipe: securecore/recipe-securecore-zfs-nvidia.yml
+          os: ubuntu-24.04
+        - recipe: securecore/recipe-securecore-zfs-nvidia-open.yml
+          os: ubuntu-24.04
+        - recipe: iot/recipe-iot-main.yml
+          os: ubuntu-24.04
+        - recipe: iot/recipe-iot-nvidia.yml
+          os: ubuntu-24.04
+        - recipe: iot/recipe-iot-nvidia-open.yml
+          os: ubuntu-24.04
+        - recipe: iot/recipe-iot-zfs-main.yml
+          os: ubuntu-24.04
+        - recipe: iot/recipe-iot-zfs-nvidia.yml
+          os: ubuntu-24.04
+        - recipe: iot/recipe-iot-zfs-nvidia-open.yml
+          os: ubuntu-24.04
+        - recipe: iot/recipe-iot-main-aarch64.yml
+          os: ubuntu-24.04-arm
+        - recipe: iot/recipe-iot-nvidia-aarch64.yml
+          os: ubuntu-24.04-arm
+        - recipe: iot/recipe-iot-nvidia-open-aarch64.yml
+          os: ubuntu-24.04-arm
     steps:
       - name: Checkout repo
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
